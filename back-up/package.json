@@ -1,0 +1,16 @@
+{
+  "name": "hmti-workspace",
+  "version": "1.0.0",
+  "description": "HMTI Monorepo",
+  "private": true,
+  "workspaces": [
+    "hmti",
+    "admin",
+    "backend"
+  ],
+  "scripts": {
+    "dev:hmti": "npm run dev -w hmti",
+    "dev:admin": "npm run dev -w admin",
+    "build:all": "npm run build -w hmti && npm run build -w admin"
+  }
+}
