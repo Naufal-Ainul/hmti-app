@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Sidebar from "../components/sidebar/Sidebar";
 
 import "./globals.css";
 
@@ -18,12 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <div className="flex">
-          <Sidebar />
-          <main className="flex-1 p-6">{children}</main>
-        </div>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
