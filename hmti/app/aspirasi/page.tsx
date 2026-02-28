@@ -1,5 +1,5 @@
 import React from "react";
-import { FormAspirasi } from "../components/form/FormAspirasi";
+import { FormAspirasi } from "../../components/form/FormAspirasi";
 
 const Aspirasi = () => {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { TextEffect } from "@/app/components/ui/text/TextEffect";
+import { TextEffect } from "@/components/ui/text/TextEffect";
 import { SparklesCore } from "./SparklesCore";
 
 type props = {

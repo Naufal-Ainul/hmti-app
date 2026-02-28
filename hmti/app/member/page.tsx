@@ -1,6 +1,6 @@
-import Card from "../components/card/Card";
-import { Faq } from "../components/faq/Faq";
-import Hero from "../components/hero/Hero";
+import Card from "../../components/card/Card";
+import { Faq } from "../../components/faq/Faq";
+import Hero from "../../components/hero/Hero";
 type Mentor = {
   id: number;
   name: string;
@@ -12,8 +12,8 @@ type Mentor = {
 };
 
 type Hero = {
-  title: string,
-}
+  title: string;
+};
 
 // const mentor: Mentor[] = [
 // 	{

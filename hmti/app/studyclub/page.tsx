@@ -1,9 +1,9 @@
 "use client";
-import Hero from "../components/hero/Hero";
-import Card from "../components/card/Card";
-import { Faq } from "../components/faq/Faq";
-import AboutSC from "../components/about/AboutSC";
-import { useFetchMentor } from "../api/mentor/useFetchMentor";
+import Hero from "../../components/hero/Hero";
+import Card from "../../components/card/Card";
+import { Faq } from "../../components/faq/Faq";
+import AboutSC from "../../components/about/AboutSC";
+import { useFetchMentor } from "../../api/mentor/useFetchMentor";
 // import ImageSC from "../components/about/ImageSC";
 
 const StudyClub = () => {

@@ -2,8 +2,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AspirasiFormData, aspirasiFormSchema } from "@/app/api/aspirasi/aspirasiSchema";
-import { CreateAspirasi } from "@/app/api/aspirasi/aspirasiApi";
+import {
+  AspirasiFormData,
+  aspirasiFormSchema,
+} from "@/api/aspirasi/aspirasiSchema";
+import { CreateAspirasi } from "@/api/aspirasi/aspirasiApi";
 import { Label } from "../ui/form/Label";
 import { Input } from "../ui/form/Input";
 import { cn } from "@/lib/utils";
@@ -13,10 +16,15 @@ type AspirasiProps = {
   nim: string;
   email: string;
   aspirasi: string;
-}
+};
 
 export function FormAspirasi() {
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<AspirasiFormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<AspirasiFormData>({
     resolver: zodResolver(aspirasiFormSchema),
     mode: "onChange",
     reValidateMode: "onChange",
@@ -25,7 +33,7 @@ export function FormAspirasi() {
       nim: "",
       email: "",
       aspirasi: "",
-    }
+    },
   });
 
   const onSubmit = async (data: AspirasiFormData) => {
@@ -39,7 +47,6 @@ export function FormAspirasi() {
     }
   };
 
-  
   return (
     <div className="shadow-input mx-auto sm:w-full max-w-95 sm:max-w-md rounded-3xl bg-linear-to-br from-slate-500/50 via-black to-slate-500/50 p-4 md:rounded-2xl md:p-8 shadow-2xl shadow-slate-500/40">
       <h2 className="flex items-center justify-center text-xl font-medium text-white mask-b-from-15%">
@@ -53,13 +60,27 @@ export function FormAspirasi() {
         <div className="mb-4 flex space-y-2 space-x-2 flex-row md:space-y-0 md:space-x-2">
           <LabelInputContainer className="sm:w-full w-43">
             <Label htmlFor="firstname">Your name</Label>
-            <Input id="firstname" placeholder="Naufal" type="text" {...register("name")} />
-            <span className="text-red-400 text-[10px]">{errors.name?.message}</span>
+            <Input
+              id="firstname"
+              placeholder="Naufal"
+              type="text"
+              {...register("name")}
+            />
+            <span className="text-red-400 text-[10px]">
+              {errors.name?.message}
+            </span>
           </LabelInputContainer>
           <LabelInputContainer className="sm:w-full w-42">
             <Label htmlFor="nim">NIM</Label>
-            <Input id="nim" placeholder="2303040142" type="text" {...register("nim")} />
-            <span className="text-red-400 text-[10px]">{errors.nim?.message}</span>
+            <Input
+              id="nim"
+              placeholder="2303040142"
+              type="text"
+              {...register("nim")}
+            />
+            <span className="text-red-400 text-[10px]">
+              {errors.nim?.message}
+            </span>
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
@@ -70,12 +91,22 @@ export function FormAspirasi() {
             type="email"
             {...register("email")}
           />
-          <span className="text-red-400 text-[10px]">{errors.email?.message}</span>
+          <span className="text-red-400 text-[10px]">
+            {errors.email?.message}
+          </span>
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="aspirasi">Aspirasi</Label>
-          <Input id="aspirasi" placeholder="Message" type="text" className="h-20" {...register("aspirasi")}/>
-          <span className="text-red-400 text-[10px]">{errors.aspirasi?.message}</span>
+          <Input
+            id="aspirasi"
+            placeholder="Message"
+            type="text"
+            className="h-20"
+            {...register("aspirasi")}
+          />
+          <span className="text-red-400 text-[10px]">
+            {errors.aspirasi?.message}
+          </span>
         </LabelInputContainer>
 
         <button
