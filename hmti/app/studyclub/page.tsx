@@ -6,7 +6,7 @@ import AboutSC from "../../components/about/AboutSC";
 import { useFetchMentor } from "../../api/mentor/useFetchMentor";
 // import ImageSC from "../components/about/ImageSC";
 
-const StudyClub = () => {
+const StudyClub = () => {     
   const { mentors } = useFetchMentor();
 
   return (
