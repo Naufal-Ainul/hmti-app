@@ -82,7 +82,7 @@ app.post("/aspirasi", async (req, res) => {
 });
 
 // =========================
-// POST
+// MENTOR
 // =========================
 // get mentor
 app.get("/mentor", async (req, res) => {
@@ -127,6 +127,27 @@ app.post("/mentor", async (req, res) => {
   } catch (error) {
 
     console.error(error);
+
+    res.status(500).json({
+      error: error.message
+    });
+  }
+});
+
+// =========================
+// PROKER
+// =========================
+// get proker
+app.get("/proker", async (req, res) => {
+  try {
+
+    const proker = await prisma.proker.findMany();
+
+    res.json(proker);
+
+  } catch (error) {
+
+    console.error("ERROR PROKER:", error);
 
     res.status(500).json({
       error: error.message
