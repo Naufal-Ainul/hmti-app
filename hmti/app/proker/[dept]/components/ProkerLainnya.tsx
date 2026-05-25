@@ -24,32 +24,38 @@ export default function ProkerLainnya({ list }: any) {
         </h2>
 
         <div className="grid md:grid-cols-3 gap-10">
-          {proker.map((proke: proker) => (
-            <motion.div
-              key={proke.id}
-              whileHover={{ scale: 1.06 }}
-              className="relative h-64 rounded-2xl overflow-hidden group
-              bg-white/5 backdrop-blur-md border border-white/10
-              shadow-lg transition-all"
-            >
-              <img
-                src={proke.img}
-                className="w-full h-full object-cover group-hover:scale-125 transition duration-[1200ms]"
-              />
+          {proker.map((proke: proker) => {
+            const imgSrc = proke.img && proke.img.trim() !== "" && proke.img !== "-"
+              ? proke.img
+              : "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop";
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+            return (
+              <motion.div
+                key={proke.id}
+                whileHover={{ scale: 1.06 }}
+                className="relative h-64 rounded-2xl overflow-hidden group
+                bg-white/5 backdrop-blur-md border border-white/10
+                shadow-lg transition-all"
+              >
+                <img
+                  src={imgSrc}
+                  className="w-full h-full object-cover group-hover:scale-125 transition duration-[1200ms]"
+                />
 
-              <div className="absolute bottom-5 left-5">
-                <h3 className="text-xl font-bold text-white">{proke.title}</h3>
-                <a
-                  href={`/proker/${proke.dept}`}
-                  className="text-blue-300 underline underline-offset-4 hover:text-blue-400"
-                >
-                  Lihat detail ▢
-                </a>
-              </div>
-            </motion.div>
-          ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+                <div className="absolute bottom-5 left-5">
+                  <h3 className="text-xl font-bold text-white">{proke.title}</h3>
+                  <a
+                    href={`/proker/${proke.id}`}
+                    className="text-blue-300 underline underline-offset-4 hover:text-blue-400"
+                  >
+                    Lihat detail ▢
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 type ProkerCardProps = {
   proker: {
+    id: number;
     img?: string;
     dept?: string;
     title?: string;
@@ -11,7 +12,12 @@ type ProkerCardProps = {
   };
 };
 
+
 export default function ProkerCard({ proker }: ProkerCardProps) {
+  const imgSrc = proker.img && proker.img.trim() !== "" && proker.img !== "-"
+    ? proker.img
+    : "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop";
+
   return (
     <motion.div
       data-aos="zoom-in-up"
@@ -24,7 +30,7 @@ export default function ProkerCard({ proker }: ProkerCardProps) {
       transition={{ type: 'spring', stiffness: 200, damping: 18 }}
     >
       <img
-        src={proker.img}
+        src={imgSrc}
         alt={proker.dept}
         className="w-full h-full object-cover group-hover:scale-125 transition duration-[1200ms]"
       />
@@ -36,7 +42,7 @@ export default function ProkerCard({ proker }: ProkerCardProps) {
         <p className="text-sm text-gray-300">{proker.desc}</p>
 
         <a
-          href={`/proker/${proker.dept}`}
+          href={`/proker/${proker.id}`}
           className="text-blue-300 underline underline-offset-4 hover:text-blue-400 text-sm font-medium"
         >
           Lihat detail ▢
