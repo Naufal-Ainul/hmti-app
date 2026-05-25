@@ -31,3 +31,15 @@ model Mentor {
   github String
   linkedin String
 }
+
+model Member {
+  id         Int      @id @default(autoincrement())
+  name       String
+  role       String
+  department String
+  imageUrl   String
+  instagram  String?
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
