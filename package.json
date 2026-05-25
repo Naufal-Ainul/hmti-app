@@ -1,0 +1,18 @@
+{
+  "name": "hmti-workspace",
+  "version": "1.0.0",
+  "description": "HMTI Monorepo",
+  "private": true,
+  "workspaces": [
+    "hmti",
+    "admin",
+    "backend"
+  ],
+  "scripts": {
+    "dev:hmti": "npm run dev -w hmti",
+    "dev:admin": "npm run dev -w admin",
+    "dev:backend": "npm run dev -w backend",
+    "dev": "npx concurrently -k -p \"[{name}]\" -n \"backend,hmti,admin\" -c \"yellow,cyan,magenta\" \"npm run dev:backend\" \"npm run dev:hmti\" \"npm run dev:admin\"",
+    "build:all": "npm run build -w hmti && npm run build -w admin"
+  }
+}

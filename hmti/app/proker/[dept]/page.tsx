@@ -79,8 +79,8 @@ type proker = {
 
 export default function Page({ params }: any) {
   const { proker } = useFetchProker();
-  const { dept } = use(params);
-  const data = proker.find((p: any) => p.dept.toLowerCase() === String(dept).toLowerCase());
+  const { dept } = use(params); // Next.js dynamic routing parameter (captures the proker ID)
+  const data = proker.find((p: any) => String(p.id) === String(dept));
   // const data = detailProker[String(dept).toUpperCase()];
   // const [preview, setPreview] = useState<string | null>(null);
 
@@ -96,7 +96,7 @@ export default function Page({ params }: any) {
   }
 
   const otherProker = Object.values(proker)
-    .filter((p: any) => p.dept !== data.dept)
+    .filter((p: any) => p.id !== data.id)
     .slice(0, 3);
 
   return (
@@ -115,7 +115,7 @@ export default function Page({ params }: any) {
 
         <div className="relative z-10 max-w-6xl mx-auto space-y-14">
 
-          <Gallery img={data.gallery} />
+          <Gallery img={data.img} />
           
           <Header title={data.title} dept={data.dept} />
 
