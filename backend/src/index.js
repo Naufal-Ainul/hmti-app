@@ -31,7 +31,6 @@ app.get("/", (req, res) => {
   res.send("API is running!");
 });
 
-
 // =========================
 // Aspirasi
 // =========================
@@ -41,12 +40,11 @@ app.get("/aspirasi", async (req, res) => {
     const aspirasi = await prisma.aspirasi.findMany();
 
     res.json(aspirasi);
-
   } catch (error) {
     console.error(error);
 
     res.status(500).json({
-      error: error.message
+      error: error.message,
     });
   }
 });
@@ -54,7 +52,6 @@ app.get("/aspirasi", async (req, res) => {
 // post aspirasi
 app.post("/aspirasi", async (req, res) => {
   try {
-
     const sendAspirasi = req.body;
 
     const aspirasi = await prisma.aspirasi.create({
@@ -70,34 +67,29 @@ app.post("/aspirasi", async (req, res) => {
       data: aspirasi,
       message: "Aspirasi created successfully",
     });
-
   } catch (error) {
-
     console.error(error);
 
     res.status(500).json({
-      error: error.message
+      error: error.message,
     });
   }
 });
 
 // =========================
-// MENTOR
+// MENTOR SC
 // =========================
 // get mentor
 app.get("/mentor", async (req, res) => {
   try {
-
     const mentor = await prisma.mentor.findMany();
 
     res.json(mentor);
-
   } catch (error) {
-
     console.error("ERROR MENTOR:", error);
 
     res.status(500).json({
-      error: error.message
+      error: error.message,
     });
   }
 });
@@ -105,7 +97,6 @@ app.get("/mentor", async (req, res) => {
 // post mentor
 app.post("/mentor", async (req, res) => {
   try {
-
     const sendMentor = req.body;
 
     const mentor = await prisma.mentor.create({
@@ -123,40 +114,71 @@ app.post("/mentor", async (req, res) => {
       data: mentor,
       message: "Mentor created successfully",
     });
-
   } catch (error) {
-
     console.error(error);
 
     res.status(500).json({
-      error: error.message
+      error: error.message,
     });
   }
 });
 
 // =========================
-// PROKER
+// MEMBER HMTI
 // =========================
-// get proker
-app.get("/proker", async (req, res) => {
+// get member
+app.get("/member", async (req, res) => {
   try {
+    const { department } = req.query;
 
-    const proker = await prisma.proker.findMany();
+    const member = await prisma.member.findMany({
+      where: department
+        ? {
+            department,
+          }
+        : {},
+      orderBy: {
+        id: "asc",
+      },
+    });
 
-    res.json(proker);
-
+    res.json(member);
   } catch (error) {
-
-    console.error("ERROR PROKER:", error);
+    console.error("ERROR MEMBER:", error);
 
     res.status(500).json({
-      error: error.message
+      error: error.message,
     });
   }
 });
 
+// post member
+app.post("/member", async (req, res) => {
+  try {
+    const sendMember = req.body;
 
+    const member = await prisma.member.create({
+      data: {
+        name: sendMember.name,
+        role: sendMember.role,
+        department: sendMember.department,
+        imageUrl: sendMember.imageUrl,
+        instagram: sendMember.instagram,
+      },
+    });
 
+    res.json({
+      data: member,
+      message: "Member created successfully",
+    });
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+});
 
 // start server
 app.listen(PORT, () => {

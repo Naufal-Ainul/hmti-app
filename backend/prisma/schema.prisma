@@ -21,15 +21,18 @@ model Mentor {
   role      String
   imageUrl  String
   instagram String
-  github    String
-  linkedin  String
+  github String
+  linkedin String
 }
 
-model Proker {
-  id        Int      @id @default(autoincrement())
-  dept      String
-  title     String
-  desc      String
-  img       String
-  createdAt DateTime @default(now())
+model Member {
+  id         Int      @id @default(autoincrement())
+  name       String
+  role       String
+  department String
+  imageUrl   String
+  instagram  String?
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
