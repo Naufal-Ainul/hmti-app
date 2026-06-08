@@ -28,57 +28,60 @@ const CardMember = ({ name, role, imageUrl, instagram }: CardProps) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
-      className="relative w-80 h-96 rounded-xl p-px bg-black overflow-hidden shadow-xl shadow-slate-500/25"
+      className="relative w-full max-w-[320px] aspect-[4/5] glass-panel overflow-hidden cursor-pointer shadow-2xl transition-all duration-300 hover:shadow-primary-500/20 hover:-translate-y-1 group"
     >
       {/* EFFECT */}
       <div
-        className={`pointer-events-none blur-3xl rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 size-60 absolute z-0 transition-opacity duration-500 ${
+        className={`pointer-events-none blur-3xl rounded-full bg-primary-500/40 size-64 absolute z-0 transition-opacity duration-500 ${
           visible ? "opacity-100" : "opacity-0"
         }`}
-        style={{ top: position.y - 120, left: position.x - 120 }}
+        style={{ top: position.y - 128, left: position.x - 128 }}
       />
 
       {/* CONTENT */}
-      <div className="relative z-10 bg-gradient-to-br from-slate-800 via-black to-slate-900 p-6 h-full w-full rounded-[11px] flex flex-col items-center justify-center text-center">
+      <div className="relative z-10 bg-slate-900/50 p-6 h-full w-full rounded-[15px] flex flex-col items-center justify-center text-center">
         
         {/* IMAGE */}
-        <Image
-          src={imageUrl}
-          alt={name}
-          width={200}
-          height={200}
-          className="aspect-square object-cover rounded-full shadow-lg mb-4"
-        />
+        <div className="relative">
+          <div className="absolute inset-0 bg-primary-500/20 blur-xl rounded-full group-hover:bg-primary-500/40 transition-colors duration-500"></div>
+          <Image
+            src={imageUrl}
+            alt={name}
+            width={120}
+            height={120}
+            className="relative size-32 object-cover rounded-full shadow-lg border-2 border-slate-700/50 group-hover:border-primary-500/50 transition-colors duration-300 mb-4"
+          />
+        </div>
 
         {/* NAME */}
-        <h2 className="text-xl text-white mb-1 font-semibold">
+        <h2 className="text-xl font-semibold text-white mb-1 group-hover:text-primary-400 transition-colors duration-300">
           {name}
         </h2>
 
         {/* ROLE */}
-        <p className="text-sm text-gray-300 font-medium mb-4">
+        <p className="text-sm text-slate-400 font-medium mb-4">
           {role}
         </p>
 
         {/* LINE */}
-        <div className="w-24 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-6"></div>
+        <div className="w-16 h-[1px] bg-linear-to-r from-transparent via-slate-700 to-transparent mb-6"></div>
 
-{/* INSTAGRAM */}
+        {/* INSTAGRAM */}
         {instagram && (
           <a
             href={instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:scale-110 transition duration-300 group"
+            className="hover:scale-110 transition duration-300 group/icon"
             aria-label={`Instagram ${name}`}
           >
-            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-black border-2 border-pink-500 transition-colors group-hover:bg-pink-500">
+            <div className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 transition-colors group-hover/icon:border-primary-500 group-hover/icon:bg-primary-500/20">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 fill="currentColor"
-                className="text-white"
+                className="text-slate-400 group-hover/icon:text-primary-400 transition-colors"
                 viewBox="0 0 448 512"
               >
                 {/* Path Ikon Instagram yang Benar */}

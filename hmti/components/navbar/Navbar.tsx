@@ -5,6 +5,8 @@ import { ImInfo } from "react-icons/im";
 import { FaRegPaperPlane } from "react-icons/fa6";
 import { LuClipboardPen } from "react-icons/lu";
 import { IoHomeOutline } from "react-icons/io5";
+import { FiUsers } from "react-icons/fi";
+
 export function Navbar() {
   const navItems = [
     {
@@ -20,7 +22,7 @@ export function Navbar() {
     {
       name: "Member",
       link: "/member",
-      icon: <ImInfo className="h-4 w-4 text-white" />,
+      icon: <FiUsers className="h-4 w-4 text-white" />,
     },
     {
       name: "Proker",
@@ -39,14 +41,8 @@ export function Navbar() {
     },
   ];
   return (
-    <div className="relative  w-full">
+    <div className="relative w-full">
       <FloatingNav navItems={navItems} />
-      <DummyContent />
     </div>
   );
 }
-const DummyContent = () => {
-  return (
-    <div className="inset-0 absolute bg-grid-black/[0.1] dark:bg-grid-white/[0.2]" />
-  );
-};

@@ -17,7 +17,7 @@ export const useFetchMember = (activeDepartment:string) => {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await axiosInstance.get<Member[]>(`/member?departement=${activeDepartment}`);
+        const response = await axiosInstance.get<Member[]>(`/member?department=${activeDepartment}`);
         console.log("Fetched members:", response.data);
         setMembers(response.data);
       } catch (error) {

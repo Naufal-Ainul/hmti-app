@@ -4,13 +4,14 @@ import GlowLine from "../ui/glowline/Glowline";
 
 interface HeroProps {
   title: string;
+  compact?: boolean;
 }
 
-const Hero = ({ title }: HeroProps) => {
+const Hero = ({ title, compact = false }: HeroProps) => {
   return (
-    <div className="max-h-screen">
-      <div className="flex max-h-screen w-full flex-col items-center justify-center overflow-hidden">
-        <SparklesPreview title={title} />
+    <div className={compact ? "max-h-[50vh]" : "max-h-screen"}>
+      <div className={`flex w-full flex-col items-center justify-center overflow-hidden ${compact ? "max-h-[50vh]" : "max-h-screen"}`}>
+        <SparklesPreview title={title} compact={compact} />
       </div>
       <GlowLine
         orientation="horizontal"

@@ -1,26 +1,29 @@
 // import library
 const express = require("express");
 const dotenv = require("dotenv");
+const path = require("path");
 const cors = require("cors");
 const { PrismaClient } = require("@prisma/client");
-const { PrismaPg } = require("@prisma/adapter-pg");
 
-// load env variables
-dotenv.config();
+// load env variables from backend/.env specifically
+dotenv.config({ path: path.join(__dirname, "..", ".env") });
 
 // app config
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
-// setup prisma adapter
-const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL,
-});
-
 // setup prisma client
-const prisma = new PrismaClient({
-  adapter,
-});
+const prisma = new PrismaClient();
+
+// Test connection
+prisma.$connect()
+  .then(() => {
+    console.log("✓ Connected to database");
+  })
+  .catch((err) => {
+    console.error("✗ Database connection failed:", err.message);
+    console.warn("⚠ Server will start but DB routes will fail until database is available.");
+  });
 
 // middleware
 app.use(cors());
@@ -170,6 +173,51 @@ app.post("/member", async (req, res) => {
     res.json({
       data: member,
       message: "Member created successfully",
+    });
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
+// =========================
+// PROKER
+// =========================
+// get proker
+app.get("/proker", async (req, res) => {
+  try {
+    const proker = await prisma.proker.findMany();
+
+    res.json(proker);
+  } catch (error) {
+    console.error("ERROR PROKER:", error);
+
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
+// post proker
+app.post("/proker", async (req, res) => {
+  try {
+    const sendProker = req.body;
+
+    const proker = await prisma.proker.create({
+      data: {
+        dept: sendProker.dept,
+        title: sendProker.title,
+        desc: sendProker.desc,
+        img: sendProker.img,
+      },
+    });
+
+    res.json({
+      data: proker,
+      message: "Proker created successfully",
     });
   } catch (error) {
     console.error(error);
