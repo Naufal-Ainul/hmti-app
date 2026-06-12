@@ -15,7 +15,7 @@ export default function AboutSC() {
       >
         <Image
           className="max-w-md w-full object-cover rounded-2xl"
-          src="https://res.cloudinary.com/dxjptcgdd/image/upload/v1769555431/Screenshot_20251121_161631_Gallery_wjwfer.jpg"
+          src="https://res.cloudinary.com/di9ls9t2u/image/upload/v1781290347/sc.jpg"
           width={448}
           height={448}
           alt="Cerenity Study Club"
@@ -52,7 +52,7 @@ export default function AboutSC() {
           Di sini, kita belajar bareng, berkembang bareng, dan siap melangkah
           lebih jauh bersama.
         </p>
-        <a
+        {/* <a
           href="#"
           className="inline-flex items-center w-max gap-2 mt-6 sm:mt-8 hover:-translate-y-0.5 transition-all duration-300 bg-gradient-to-br from-slate-500/75 via-black to-slate-500 shadow-sm shadow-blue-400 py-3 px-8 rounded-full text-white text-sm"
         >
@@ -70,7 +70,7 @@ export default function AboutSC() {
               className="mask-b-from-50%"
             />
           </svg>
-        </a>
+        </a> */}
       </motion.div>
     </section>
   );

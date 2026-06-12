@@ -5,28 +5,28 @@ export const Faq = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const faqsData = [
     {
-      question: "Lightning-Fast Performance",
-      answer: "Built with speed — minimal load times and optimized rendering.",
+      question: "Siapa aja nih yang boleh join?",
+      answer: "Siapa aja boleh! Dari maba sampai kating (kakak tingkat) yang mau belajar bareng, gas aja. Nggak ada syarat IPK kok, yang penting niat bawa diri!",
     },
     {
-      question: "Fully Customizable Components",
+      question: "Emang kegiatannya ngapain aja sih?",
       answer:
-        "Easily adjust styles, structure, and behavior to match your project needs.",
+        "Kita biasa nugas bareng, review materi kuliah yang bikin pusing, sampai bedah kisi-kisi buat persiapan UTS/UAS. Kadang ada sharing session santai juga dan mengikuti berbagai kompetisi dibidang IT.",
     },
     {
-      question: "Responsive by Default",
+      question: "Kumpulnya kapan dan di mana?",
       answer:
-        "Every component are responsive by default — no extra CSS required.",
+        "Kita ada sekre khusus untuk kumpul di R.IV.10 atau bisa juga kumpul online via Discord Cerenity resmi kami.",
     },
     {
-      question: "Tailwind CSS Powered",
+      question: "Ada bayar kas/iuran nggak?",
       answer:
-        "Built using Tailwind utility classes — no extra CSS or frameworks required.",
+        "Gratis 100%! Paling kita cuma patungan sukarela kalau lagi pengen pesen makan bareng atau butuh print soal tambahan aja.",
     },
     {
-      question: "Dark Mode Support",
+      question: "Cara daftarnya gimana?",
       answer:
-        "All components come ready with light and dark theme support out of the box.",
+        "Gampang banget! Langsung aja klik dan isi G-Form pendaftaran yang akan kami share di grub angkatan.",
     },
   ];
   return (

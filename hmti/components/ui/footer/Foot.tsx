@@ -79,7 +79,7 @@ export default function Foot({ className }: FootProps) {
                 </h3>
                 <div className="flex flex-col gap-2 mt-6 z-10">
                   <Link
-                    href="#"
+                    href="/"
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
                     Home
@@ -123,28 +123,16 @@ export default function Foot({ className }: FootProps) {
                 </h3>
                 <div className="flex flex-col gap-2 mt-6">
                   <Link
-                    href="#"
-                    className="text-sm text-white/60 hover:text-white transition-colors"
-                  >
-                    Twitter
-                  </Link>
-                  <Link
-                    href="#"
+                    href="https://www.instagram.com/hmtiftsump/"
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
                     Instagram
                   </Link>
                   <Link
-                    href="#"
+                    href="https://www.youtube.com/@hmtiftsump1490"
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
                     Youtube
-                  </Link>
-                  <Link
-                    href="#"
-                    className="text-sm text-white/60 hover:text-white transition-colors"
-                  >
-                    Linkedin
                   </Link>
                 </div>
               </div>
