@@ -15,15 +15,7 @@ const app = express();
 // setup prisma client
 const prisma = new PrismaClient();
 
-// Test connection
-prisma.$connect()
-  .then(() => {
-    console.log("✓ Connected to database");
-  })
-  .catch((err) => {
-    console.error("✗ Database connection failed:", err.message);
-    console.warn("⚠ Server will start but DB routes will fail until database is available.");
-  });
+
 
 // middleware
 app.use(cors());
