@@ -7,7 +7,8 @@
   "type": "commonjs",
   "main": "src/index.js",
   "scripts": {
-    "dev": "node -e \"process.env.PORT='5000'; require('./src/index.js')\""
+    "dev": "node -e \"process.env.PORT='5000'; require('./src/index.js')\"",
+    "postinstall": "prisma generate"
   },
   "devDependencies": {
     "@types/node": "^25.3.0",
